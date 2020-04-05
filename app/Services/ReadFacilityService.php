@@ -44,14 +44,14 @@ class ReadFacilityService {
 
   }
 
-  /**
-   * emailアドレス指定で施設情報を取得します。
-   *
-   * @param int $facilityEmail 施設ID
-   * @return array
-   */
-  public function whereFacilityEmail(int $facilityEmail): array {
-    return $this->FacilityRepository->whereFacilityEmail($facilityEmail);
+  // /**
+  //  * emailアドレス指定で施設情報を取得します。
+  //  *
+  //  * @param int $facilityEmail 施設ID
+  //  * @return array
+  //  */
+  // public function whereFacilityEmail(string $facilityEmail): array {
+  //   return $this->FacilityRepository->whereFacilityEmail($facilityEmail);
 
-  }
+  // }
 }

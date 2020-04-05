@@ -22,7 +22,7 @@ class FacilityRepository implements FacilityRepositoryInterface {
    * @param int $id 施設ID
    * @return array
    */
-  public function find(int $id) {
+  public function findFacility(int $id) {
     return Facility::findOrFail($id)->toArray();
   }
 

@@ -14,10 +14,10 @@ class CreateAccessibilityTypesTable extends Migration
     public function up()
     {
         Schema::create('accessibility_types', function (Blueprint $table) {
-          $table->increments('id');
-          $table->string('name')->comment('バリアフリーの名称');
-          $table->string('slug')->comment('バリアフリーのSlug名');
-//      $table->integer('accessibility_order')->comment('SELECTする際の取得順');
+            $table->increments('id');
+            $table->string('name')->comment('バリアフリーの名称');
+            $table->string('slug')->comment('バリアフリーのSlug名');
+            //      $table->integer('accessibility_order')->comment('SELECTする際の取得順');
         });
     }
 

@@ -27,16 +27,16 @@ interface FacilityRepositoryInterface {
    * @param int $id 施設ID
    * @return array
    */
-  public function find(int $id);
+  public function findFacility(int $id);
 
-  /**
-   * facilitiesテーブルから指定したEmailに該当したレコードを
-   * 取得するメソッドです。
-   *
-   * @param string $facilityEmail ユーザーのアドレス
-   * @return array
-   */
-  public function whereFacilityEmail(string $facilityEmail): array;
+  // /**
+  //  * facilitiesテーブルから指定したEmailに該当したレコードを
+  //  * 取得するメソッドです。
+  //  *
+  //  * @param string $facilityEmail ユーザーのアドレス
+  //  * @return array
+  //  */
+  // public function whereFacilityEmail(string $facilityEmail): array;
 
   public function createFacility();
 }

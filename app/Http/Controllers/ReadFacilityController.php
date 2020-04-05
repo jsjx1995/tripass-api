@@ -42,15 +42,15 @@ class ReadFacilityController extends Controller {
     return response()->json($facilityMeta, 200);
   }
 
-  /**
-   *施設のメールアドレス指定でfacilitiesのレコードを１件取得します。
-   *
-   * @param Request $request リクエスト
-   * @return JsonResponse
-   */
-  public function whereFacilityEmail(Request $request): JsonResponse {
-    $facilityMeta = $this->readFacilityService->whereFacilityEmail((int)$request->get('facility_email'));
+  // /**
+  //  *施設のメールアドレス指定でfacilitiesのレコードを１件取得します。
+  //  *
+  //  * @param Request $request リクエスト
+  //  * @return JsonResponse
+  //  */
+  // public function whereFacilityEmail(Request $request): JsonResponse {
+  //   $facilityMeta = $this->readFacilityService->whereFacilityEmail((int)$request->get('facility_email'));
 
-    return response()->json($facilityMeta, 200);
-  }
+  //   return response()->json($facilityMeta, 200);
+  // }
 }

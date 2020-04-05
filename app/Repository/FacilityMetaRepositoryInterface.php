@@ -48,14 +48,7 @@ interface FacilityMetaRepositoryInterface {
 
   public function getFacilityMetaRecordsByType(int $type);
 
-//  /**
-//   * 施設IDに紐づく開店時間を取得するメソッドです。
-//   *
-//   * @param int $id 施設ID
-//   * @return array
-//   */
-//  public function findFacilityOpenHours(int $id, string $openHours): array;
-//
+//  /** 
 //  /**
 //   *
 //   * 施設IDに紐づく閉店時間取得するメソッドです。

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFavoritesFacilitiesTable extends Migration
+class CreateFacilityPhotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateFavoritesFacilitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('favorites_facilities', function (Blueprint $table) {
+        Schema::create('facility_photo', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('owner_id')->unsigned();
-            $table->bigInteger('facility_id')->unsigned();
-            $table->timestamps();
-            $table->foreign('owner_id')->references('id')->on('users');
+            $table->bigInteger('facility_id')->unsigned()->comment('facilitiesのid');
+            $table->string('pic_path')->comment('施設の写真のパス');
             $table->foreign('facility_id')->references('id')->on('facilities');
-            $table->unique(['owner_id', 'facility_id']);
         });
     }
 
@@ -31,6 +28,6 @@ class CreateFavoritesFacilitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favorites_facilities');
+        Schema::dropIfExists('facility_photo');
     }
 }

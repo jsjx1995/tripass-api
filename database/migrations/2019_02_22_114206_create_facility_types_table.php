@@ -4,13 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFacilityTypesTable extends Migration {
+class CreateFacilityTypesTable extends Migration
+{
   /**
    * Run the migrations.
    *
    * @return void
    */
-  public function up() {
+  public function up()
+  {
     Schema::create('facility_types', function (Blueprint $table) {
       $table->increments('type_id');
       $table->string('name', 100)->comment('施設タイプ名');
@@ -24,7 +26,8 @@ class CreateFacilityTypesTable extends Migration {
    *
    * @return void
    */
-  public function down() {
+  public function down()
+  {
     Schema::dropIfExists('facility_types');
   }
 }
