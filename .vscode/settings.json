@@ -1,0 +1,19 @@
+{
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#F05340",
+        "titleBar.activeForeground": "#000000",
+        "activityBar.background": "#F05340",
+        "activityBar.foreground": "#000000"
+    },
+    "sqltools.connections": [
+        {
+            "database": "default",
+            "dialect": "MariaDB",
+            "name": "TRIPASS",
+            "password": "secret",
+            "port": 3306,
+            "server": "localhost",
+            "username": "default"
+        }
+    ]
+}

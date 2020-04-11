@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
       $table->string('user_login', 60)->comment('ログインに使用されるユーザー名');
       $table->string('user_email', 100)->comment('ユーザーのメールアドレス');
       $table->string('user_display_name', 250)->comment('ユーザーの表示名');
-      $table->timestamps();
+      $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+      $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
     });
   }
 

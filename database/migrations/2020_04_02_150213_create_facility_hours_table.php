@@ -15,23 +15,23 @@ class CreateFacilityHoursTable extends Migration
     {
         Schema::create('facility_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('facility_id')->unsigned()->comment('facilitiesのid');
-            $table->time('mon_open')->nullable();
-            $table->time('mon_close')->nullable();
-            $table->time('tue_open')->nullable();
-            $table->time('tue_close')->nullable();
-            $table->time('wed_open')->nullable();
-            $table->time('wed_close')->nullable();
-            $table->time('thu_open')->nullable();
-            $table->time('thu_close')->nullable();
-            $table->time('fri_open')->nullable();
-            $table->time('fri_close')->nullable();
-            $table->time('sat_open')->nullable();
-            $table->time('sat_close')->nullable();
-            $table->time('sun_open')->nullable();
-            $table->time('sun_close')->nullable();
-            $table->string('holiday')->nullable();
-            $table->foreign('facility_id')->references('id')->on('facilities');
+            $table->bigInteger('facility_id')->unsigned()->comment('facility_basicinfoのid');
+            $table->time('mon_open')->nullable($value = true);
+            $table->time('mon_close')->nullable($value = true);
+            $table->time('tue_open')->nullable($value = true);
+            $table->time('tue_close')->nullable($value = true);
+            $table->time('wed_open')->nullable($value = true);
+            $table->time('wed_close')->nullable($value = true);
+            $table->time('thu_open')->nullable($value = true);
+            $table->time('thu_close')->nullable($value = true);
+            $table->time('fri_open')->nullable($value = true);
+            $table->time('fri_close')->nullable($value = true);
+            $table->time('sat_open')->nullable($value = true);
+            $table->time('sat_close')->nullable($value = true);
+            $table->time('sun_open')->nullable($value = true);
+            $table->time('sun_close')->nullable($value = true);
+            $table->longText('holiday')->nullable($value = true);
+            $table->foreign('facility_id')->references('id')->on('facility_basicinfo');
         });
     }
 

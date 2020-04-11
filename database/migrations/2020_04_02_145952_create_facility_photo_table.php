@@ -15,9 +15,9 @@ class CreateFacilityPhotoTable extends Migration
     {
         Schema::create('facility_photo', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('facility_id')->unsigned()->comment('facilitiesのid');
+            $table->bigInteger('facility_id')->unsigned()->comment('facility_basicinfoのid');
             $table->string('pic_path')->comment('施設の写真のパス');
-            $table->foreign('facility_id')->references('id')->on('facilities');
+            $table->foreign('facility_id')->references('id')->on('facility_basicinfo');
         });
     }
 

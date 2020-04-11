@@ -15,9 +15,11 @@ class CreateFacilitySpotTable extends Migration
     {
         Schema::create('facility_spot', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('facility_lat',9,6);
-            $table->double('facility_lng',9,6);
+            $table->bigInteger('facility_id')->unsigned()->comment('facility_basicinfoのid');
+            $table->double('facility_lat', 9, 6);
+            $table->double('facility_lng', 9, 6);
             $table->geometry('facility_point');
+            $table->foreign('facility_id')->references('id')->on('facility_basicinfo');
         });
     }
 

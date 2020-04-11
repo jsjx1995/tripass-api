@@ -15,11 +15,14 @@ class CreateFacilityPriceTable extends Migration
     {
         Schema::create('facility_price', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('facility_id')->unsigned()->comment('facility_basicinfoのid');
+            $table->string('price_title');
             $table->unsignedInteger('price_adult');
             $table->unsignedInteger('price_adult_discounted');
             $table->unsignedInteger('price_child');
             $table->unsignedInteger('price_child_discounted');
-            $table->timestamps();
+            $table->longText('price_detail');
+            $table->foreign('facility_id')->references('id')->on('facility_basicinfo');
         });
     }
 
