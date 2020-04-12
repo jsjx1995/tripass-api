@@ -1,0 +1,1 @@
+curl -X GET --url http://127.0.0.1:80/api/read/facilityBasicinfo/all/135.5022535/34.6937249
