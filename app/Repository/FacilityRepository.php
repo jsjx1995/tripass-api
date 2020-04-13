@@ -105,7 +105,27 @@ class FacilityRepository implements FacilityRepositoryInterface
     } else {
       $query->join('facility_spot', 'facility_spot.facility_id', '=', 'facility_basicinfo.id');
     }
-    $data = $query->select('facility_basicinfo.*', 'facility_hours.*')
+    $data = $query->select(
+      'facility_basicinfo.id',
+      'facility_basicinfo.facility_name',
+      'facility_basicinfo.facility_type',
+      'facility_basicinfo.facility_bio',
+      'facility_basicinfo.facility_address',
+      'facility_spot.facility_lat',
+      'facility_spot.facility_lng',
+      'facility_basicinfo.facility_phone',
+      'facility_basicinfo.facility_fax',
+      'facility_basicinfo.facility_email',
+      'facility_basicinfo.facility_url',
+      'facility_basicinfo.facility_toilet',
+      'facility_basicinfo.facility_signlanguage',
+      'facility_basicinfo.facility_elevator',
+      'facility_basicinfo.facility_wheelchair',
+      'facility_basicinfo.facility_parking',
+      'facility_hours.*',
+      'facility_basicinfo.created_at',
+      'facility_basicinfo.updated_at'
+    )
       ->whereRaw('TRUNCATE(
         (
             6371 * acos(
@@ -119,18 +139,29 @@ class FacilityRepository implements FacilityRepositoryInterface
     foreach ($data as $facility) {
       array_push($id_list, $facility->facility_id);
     }
+    $id_list = array_unique($id_list);
     $price_list = DB::table('facility_price')->wherein('facility_id', $id_list)->get();
 
+    unset($facility);
 
     foreach ($data as $facility) {
-      foreach ($price_list as $value) {
-        if ($facility->facility_id === $value->facility_id) {
-          $facility->price = $value;
+      $price_array = array();
+      foreach ($price_list as $price) {
+        if ($facility->facility_id === $price->facility_id) {
+          array_push($price_array, $price);
         }
       }
+      $facility->price = $price_array;
     }
-    // print_r($data);
 
-    return $price_list;
+    foreach ($data as $value) {
+      unset($value->facility_id);
+      foreach ($value->price as $price) {
+        unset($price->id);
+        unset($price->facility_id);
+      }
+    }
+
+    return $data;
   }
 }
