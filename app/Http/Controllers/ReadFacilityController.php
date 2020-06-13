@@ -39,14 +39,14 @@ class ReadFacilityController extends Controller
     $this->readFacilityService = $readFacilityService;
   }
 
-  public function findFacility(Request $request): JsonResponse
-  {
-    Log::info($request);
+  // public function findFacility(Request $request): JsonResponse
+  // {
+  //   Log::info($request);
 
-    $facilityMeta = $this->readFacilityService->findFacility((int) $request->get('id'), $request->get('$key'));
+  //   $facilityMeta = $this->readFacilityService->findFacility((int) $request->get('id'), $request->get('$key'));
 
-    return response()->json($facilityMeta, 200);
-  }
+  //   return response()->json($facilityMeta, 200);
+  // }
 
   // /**
   //  * 施設タイプとキーワード検索で指定した位置の緯度経度から施設情報を取得します。

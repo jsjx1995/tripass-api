@@ -6,6 +6,7 @@ use App\Repository\FacilityRepositoryInterface;
 use App\FacilitySpot;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Storage;
 
 /**
  * Class UserRepository
@@ -17,17 +18,6 @@ use Illuminate\Support\Facades\DB;
  */
 class FacilityRepository implements FacilityRepositoryInterface
 {
-  /**
-   * 施設IDに紐づくレコードを1件取得するメソッドです。
-   *
-   * @param int $id 施設ID
-   * @return array
-   */
-  public function findFacility(int $id)
-  {
-    return;
-  }
-
   /**
    * facilitiesテーブルから指定したEmailに該当したレコードを
    * 取得するメソッドです。
@@ -213,6 +203,31 @@ class FacilityRepository implements FacilityRepositoryInterface
       }
     }
 
+    // 変数の初期化
+    unset($facility);
+
+    foreach ($id_list as $id) {
+      $photo_paths = $this->getPhotoPath($id);
+      foreach ($data as $facility) {
+        if ($facility->id === $id) {
+          $facility->photoPath = $photo_paths;
+        }
+      }
+    }
+
+
     return $data;
+  }
+
+  public function getPhotoPath(int $id): array
+  {
+    $disk = Storage::disk('s3');
+    $file = $disk->files($id);
+    $urls = array();
+    foreach ($file as $path) {
+      $url = $disk->url($path);
+      array_push($urls, $url);
+    }
+    return $urls;
   }
 }

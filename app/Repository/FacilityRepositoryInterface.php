@@ -11,10 +11,6 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-
 /**
  * Class UserRepository
  *
@@ -31,7 +27,7 @@ interface FacilityRepositoryInterface
    * @param int $id 施設ID
    * @return array
    */
-  public function findFacility(int $id);
+  // public function findFacility(int $id);
 
   /**
    * facilitiesテーブルから指定したEmailに該当したレコードを
@@ -45,5 +41,10 @@ interface FacilityRepositoryInterface
    */
   public function findNearFacilityByFacilityType(string $type, string $lat, string $lng);
 
-  // public function createFacility();
+  /**
+   * 写真のパスのリストを取得するメソッドです。
+   * @param array $id_list idのリスト
+   * @return array
+   */
+  public function getPhotoPath(int $id): array;
 }

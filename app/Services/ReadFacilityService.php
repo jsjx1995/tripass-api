@@ -45,10 +45,10 @@ class ReadFacilityService
    * @param int $facilityId 施設ID
    * @return array
    */
-  public function findFacility(int $facilityId): array
-  {
-    return $this->FacilityRepository->findFacility($facilityId);
-  }
+  // public function findFacility(int $facilityId): array
+  // {
+  //   return $this->FacilityRepository->findFacility($facilityId);
+  // }
 
   /**
    * 施設タイプと緯度経度情報で施設情報を取得します。
