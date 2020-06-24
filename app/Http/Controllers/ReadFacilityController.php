@@ -54,10 +54,10 @@ class ReadFacilityController extends Controller
   //  * @param Request $request リクエスト
   //  * @return JsonResponse
   //  */
-  public function findNearFacilityByFacilityType(string $type, string $lat, string $lng)
+  public function findNearFacilityByFacilityType(Request $request)
   {
-
-    $facilityInfo = $this->readFacilityService->findNearFacilityByFacilityType($type, $lat, $lng);
+    // echo $request->get('type');
+    $facilityInfo = $this->readFacilityService->findNearFacilityByFacilityType((string) $request->get('type'), (string) $request->get('lat'), (string) $request->get('lng'));
 
     return response()->json($facilityInfo, 200);
   }

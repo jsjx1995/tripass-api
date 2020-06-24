@@ -17,13 +17,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 //ReadFacilityControllerのエンドポイント
-Route::get('/read/facilityBasicinfo/{id}/{lat}/{lng}', 'ReadFacilityController@findNearFacilityByFacilityType');
-//ReadFacilityMetaControllerのエンドポイント
-Route::get('/facilityMetas', 'ReadFacilityMetaController@getFacilityMetaRecords');
-Route::get('/facilityMetas/type', 'ReadFacilityMetaController@getFacilityMetaRecordsByType');
-Route::post('/facilityMetas', 'CreateFacilityMetaController@createRecords');
+Route::get('/read/facilityBasicinfo', 'ReadFacilityController@findNearFacilityByFacilityType');
+Route::post('/createFacility', 'CreateFacilityController@createRecord');
 
-//ReadUserControllerのエンドポイント
-Route::get('/read/action/users/', 'ReadUserController@getUserRecords');
-//ReadUserMetaControllerのエンドポイント
-Route::get('/read/action/userMetas/', 'ReadUserMetaController@getUserMetaRecords');
+
+
+
+//ReadFacilityMetaControllerのエンドポイント
+// Route::get('/facilityMetas', 'ReadFacilityMetaController@getFacilityMetaRecords');
+// Route::get('/facilityMetas/type', 'ReadFacilityMetaController@getFacilityMetaRecordsByType');
+// Route::post('/facilityMetas', 'CreateFacilityMetaController@createRecords');
+
+// //ReadUserControllerのエンドポイント
+// Route::get('/read/action/users/', 'ReadUserController@getUserRecords');
+// //ReadUserMetaControllerのエンドポイント
+// Route::get('/read/action/userMetas/', 'ReadUserMetaController@getUserMetaRecords');

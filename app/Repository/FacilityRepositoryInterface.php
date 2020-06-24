@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 /**
- * Class UserRepository
+ * Class FacilityRepository
  *
  * facilityテーブルの操作を行うインターフェースです。
  *
@@ -47,4 +47,12 @@ interface FacilityRepositoryInterface
    * @return array
    */
   public function getPhotoPath(int $id): array;
+
+  /**
+   * 一つの施設情報を登録するメソッドです。
+   * テーブルはFacility_basicinfo、Facility_price、facility_hours、facility_spot、facility_photo（予定）。
+   *
+   * @param array 施設のすべての情報
+   */
+  public function createFacility(array $data);
 }

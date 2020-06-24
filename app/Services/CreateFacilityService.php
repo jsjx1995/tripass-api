@@ -9,7 +9,6 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Repository\FacilityRepositoryInterface;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Class ReadUserService
@@ -39,7 +38,7 @@ class CreateFacilityService {
    * @param array $saveData
    * @return mixed
    */
-  public function createFacility(array $saveData) {
-    return $this->FacilityRepository->createFacility($saveData);
+  public function createFacility(array $data) {
+    return $this->FacilityRepository->createFacility($data);
   }
 }

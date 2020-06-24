@@ -1,4 +1,5 @@
 {
+    "editor.disableTranslate3d": true,
     "workbench.colorCustomizations": {
         "titleBar.activeBackground": "#F05340",
         "titleBar.activeForeground": "#000000",
@@ -7,11 +8,16 @@
     },
     "sqltools.connections": [
         {
+            "askForPassword": false,
             "database": "default",
-            "dialect": "MariaDB",
-            "name": "TRIPASS",
+            "driver": "MariaDB",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "tripass",
             "password": "secret",
             "port": 3306,
+            "previewLimit": 50,
             "server": "localhost",
             "username": "default"
         }

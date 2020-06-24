@@ -19,6 +19,7 @@ class CreateFacilitiesTable extends Migration
       $table->string('facility_name')->comment('施設名称');
       $table->string('facility_type')->comment('施設タイプ');
       $table->string('facility_bio')->comment('施設紹介文')->nullable($value = true);
+      $table->string('facility_post')->comment('郵便番号')->nullable($value = true);
       $table->string('facility_address')->comment('住所')->nullable($value = true);
       $table->string('facility_phone')->comment('電話番号')->nullable($value = true);
       $table->string('facility_fax')->comment('FAX番号')->nullable($value = true);

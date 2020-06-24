@@ -14,9 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Class UserMetaCreateController
+ * Class CreateFacilityMetaController
  *
- * facilitiesテーブルとfacility_metaテーブルのレコードを
  * INSERTするためのコントローラです。
  *
  * @Author: Akio
@@ -35,18 +34,18 @@ class CreateFacilityMetaController extends Controller {
     $this->FacilityMetaCreateService = $FacilityMetaCreateService;
   }
 
-  /**
-   * facilitiesテーブルとfacility_metaテーブルに
-   * 同時に複数件レコードを追加するためのメソッドです。
-   *
-   * @param Request $request
-   * @return JsonResponse
-   */
-  public function createRecords(Request $request): JsonResponse {
+  // /**
+  //  * facilitiesテーブルとfacility_metaテーブルに
+  //  * 同時に複数件レコードを追加するためのメソッドです。
+  //  *
+  //  * @param Request $request
+  //  * @return JsonResponse
+  //  */
+  // public function createRecords(Request $request): JsonResponse {
 
-    Log::info($request);
-    $result = $this->FacilityMetaCreateService->createFacilityMeta($request->post());
+  //   Log::info($request);
+  //   $result = $this->FacilityMetaCreateService->createFacilityMeta($request->post());
 
-    return response()->json($result, 200);
-  }
+  //   return response()->json($result, 200);
+  // }
 }
