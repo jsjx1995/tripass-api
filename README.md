@@ -45,7 +45,8 @@ docker-compose exec --user=laradock workspace bash
 
 laradockユーザでログインしないとrootで入ってしまうので、composer installができない。
 
-(入ってから`su - laradock`でもいいと思う)
+(入ってから`su - laradock`でもいいと思ったけど、カレントディレクトリの設定をしているので、
+rootユーザで入ってしまうと、プロジェクトのディレクトリに入ることができない)
 
 
 ## 6. composer install
